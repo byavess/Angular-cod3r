@@ -6,11 +6,14 @@ import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { Product } from './product.model';
 
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
+
+ 
 export class ProductService {
 
-baseUrl = "http://localhost:3001/products";
+//baseUrl = "http://localhost:3001/products";
+private readonly API = "api/produtos";
  
   
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
@@ -23,30 +26,29 @@ baseUrl = "http://localhost:3001/products";
       
     });
   }
-  
 
 create(product : Product): Observable <Product>{
-  return this.http.post<Product>(this.baseUrl,product).pipe(
+  return this.http.post<Product>(this.API,product).pipe(
     map((obj) => obj),
     catchError ((e) => this.errorHandler(e))
   );
 }
 
 read(): Observable<Product[]>{
-  return this.http.get<Product[]>(this.baseUrl).pipe(
+  return this.http.get<Product[]>(this.API).pipe(
     map((obj) => obj),
     catchError ((e) => this.errorHandler(e))
   );
 }
   readById( id: number) : Observable<Product> {
-    const url= `${this.baseUrl}/${id}`;
+    const url= `${this.API}/${id}`;
     return this.http.get<Product>(url).pipe(
       map((obj) => obj),
       catchError ((e) => this.errorHandler(e))
     );
   }
   update(product: Product) : Observable<Product>{
-    const url= `${this.baseUrl}/${product.id}`;
+    const url= `${this.API}/${product.id}`;
     return this.http.put<Product>(url, product).pipe(
       map((obj) => obj),
       catchError ((e) => this.errorHandler(e))
@@ -54,7 +56,7 @@ read(): Observable<Product[]>{
 
   }
   delete(id: number): Observable<Product>{
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.API}/${id}`;
     return this.http.delete<Product>(url).pipe(
       map((obj) => obj),
       catchError ((e) => this.errorHandler(e))
