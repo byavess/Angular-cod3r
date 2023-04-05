@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>Nova Bebida</mat-card-title>
+    <form>
+              <mat-form-field>
+            <input matInput placeholder=" Nome" [(ngModel)]="bebidas.name"
+            name="name">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Preço (R$)"[(ngModel)] ="bebidas.price"
+                    name="price">
+                </mat-form-field>
+    </form>
+
+<button mat-raised-button (click)=" createBebidas()" color = "primary">
+    Salvar</button>
+<button mat-raised-button (click)=" createBebidas()" >
+    Cancelar</button>
+    </mat-card>

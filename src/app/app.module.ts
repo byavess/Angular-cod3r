@@ -32,6 +32,12 @@ import localePt from'@angular/common/locales/pt';
 import {registerLocaleData} from '@angular/common';
 import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
 import { ProducDeleteComponent } from './components/product/produc-delete/produc-delete.component';
+import { BebidasCrudComponent } from './views/bebidas-crud/bebidas-crud.component';
+import { BebidasDeleteComponent } from './components/bebidas/bebidas-delete/bebidas-delete.component';
+import { BebidasUpdateComponent } from './components/bebidas/bebidas-update/bebidas-update.component';
+import { BebidastCreatComponent } from './components/bebidas/bebidas-creat/bebidas-creat.component';
+
+
 
 registerLocaleData(localePt);
 
@@ -49,7 +55,12 @@ registerLocaleData(localePt);
     ProductReadComponent,
     ProductRead2Component,
     ProductUpdateComponent,
-    ProducDeleteComponent
+    ProducDeleteComponent,
+   BebidasDeleteComponent,
+   BebidasUpdateComponent,
+   BebidastCreatComponent,
+    BebidasCrudComponent,
+
     
   ],
   imports: [
